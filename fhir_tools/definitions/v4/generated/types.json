@@ -1,0 +1,4904 @@
+{
+  "ContactDetail": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "ContactDetail", 
+    "elements": {
+      "ContactDetail.name": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactDetail.telecom": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "ContactPoint"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactDetail.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactDetail.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Ratio": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Ratio", 
+    "elements": {
+      "Ratio.numerator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Ratio.denominator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Ratio.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Ratio.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "MarketingStatus": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "MarketingStatus", 
+    "elements": {
+      "MarketingStatus.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "MarketingStatus.country": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 1
+      }, 
+      "MarketingStatus.restoreDate": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }, 
+      "MarketingStatus.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "MarketingStatus.status": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 1
+      }, 
+      "MarketingStatus.jurisdiction": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "MarketingStatus.dateRange": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 1
+      }, 
+      "MarketingStatus.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Signature": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Signature", 
+    "elements": {
+      "Signature.onBehalfOf": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Reference", 
+            "targets": [
+              "Practitioner", 
+              "PractitionerRole", 
+              "RelatedPerson", 
+              "Patient", 
+              "Device", 
+              "Organization"
+            ]
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.data": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.sigFormat": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.targetFormat": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.type": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Signature.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Signature.who": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Reference", 
+            "targets": [
+              "Practitioner", 
+              "PractitionerRole", 
+              "RelatedPerson", 
+              "Patient", 
+              "Device", 
+              "Organization"
+            ]
+          }
+        ], 
+        "min": 1
+      }, 
+      "Signature.when": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "instant"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "Attachment": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Attachment", 
+    "elements": {
+      "Attachment.url": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "url"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.hash": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.contentType": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.title": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.data": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.language": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.size": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "unsignedInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Attachment.creation": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "BackboneElement": {
+    "abstract": true, 
+    "base": "Element", 
+    "name": "BackboneElement", 
+    "elements": {
+      "BackboneElement.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "BackboneElement.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "BackboneElement.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "RelatedArtifact": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "RelatedArtifact", 
+    "elements": {
+      "RelatedArtifact.document": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Attachment"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.resource": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.label": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.citation": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.display": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.url": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "url"
+          }
+        ], 
+        "min": 0
+      }, 
+      "RelatedArtifact.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "SubstanceAmount": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "SubstanceAmount", 
+    "elements": {
+      "SubstanceAmount.referenceRange.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.referenceRange.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.amount[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.referenceRange": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.amountText": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.referenceRange.lowLimit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.referenceRange.highLimit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SubstanceAmount.amountType": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "ElementDefinition": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "ElementDefinition", 
+    "elements": {
+      "ElementDefinition.base.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.binding.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.max": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.key": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "id"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.code": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.fixed[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }, 
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "canonical"
+          }, 
+          {
+            "code": "code"
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "id"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "markdown"
+          }, 
+          {
+            "code": "oid"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "string"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "uri"
+          }, 
+          {
+            "code": "url"
+          }, 
+          {
+            "code": "uuid"
+          }, 
+          {
+            "code": "Address"
+          }, 
+          {
+            "code": "Age"
+          }, 
+          {
+            "code": "Annotation"
+          }, 
+          {
+            "code": "Attachment"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Coding"
+          }, 
+          {
+            "code": "ContactPoint"
+          }, 
+          {
+            "code": "Count"
+          }, 
+          {
+            "code": "Distance"
+          }, 
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "HumanName"
+          }, 
+          {
+            "code": "Identifier"
+          }, 
+          {
+            "code": "Money"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Reference"
+          }, 
+          {
+            "code": "SampledData"
+          }, 
+          {
+            "code": "Signature"
+          }, 
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "ContactDetail"
+          }, 
+          {
+            "code": "Contributor"
+          }, 
+          {
+            "code": "DataRequirement"
+          }, 
+          {
+            "code": "Expression"
+          }, 
+          {
+            "code": "ParameterDefinition"
+          }, 
+          {
+            "code": "RelatedArtifact"
+          }, 
+          {
+            "code": "TriggerDefinition"
+          }, 
+          {
+            "code": "UsageContext"
+          }, 
+          {
+            "code": "Dosage"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.example.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.binding.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.source": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.sliceName": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.example.value[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }, 
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "canonical"
+          }, 
+          {
+            "code": "code"
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "id"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "markdown"
+          }, 
+          {
+            "code": "oid"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "string"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "uri"
+          }, 
+          {
+            "code": "url"
+          }, 
+          {
+            "code": "uuid"
+          }, 
+          {
+            "code": "Address"
+          }, 
+          {
+            "code": "Age"
+          }, 
+          {
+            "code": "Annotation"
+          }, 
+          {
+            "code": "Attachment"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Coding"
+          }, 
+          {
+            "code": "ContactPoint"
+          }, 
+          {
+            "code": "Count"
+          }, 
+          {
+            "code": "Distance"
+          }, 
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "HumanName"
+          }, 
+          {
+            "code": "Identifier"
+          }, 
+          {
+            "code": "Money"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Reference"
+          }, 
+          {
+            "code": "SampledData"
+          }, 
+          {
+            "code": "Signature"
+          }, 
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "ContactDetail"
+          }, 
+          {
+            "code": "Contributor"
+          }, 
+          {
+            "code": "DataRequirement"
+          }, 
+          {
+            "code": "Expression"
+          }, 
+          {
+            "code": "ParameterDefinition"
+          }, 
+          {
+            "code": "RelatedArtifact"
+          }, 
+          {
+            "code": "TriggerDefinition"
+          }, 
+          {
+            "code": "UsageContext"
+          }, 
+          {
+            "code": "Dosage"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.slicing.discriminator.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.definition": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mapping.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.maxLength": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "integer"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mapping.map": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.type.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.base.max": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.mapping.identity": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "id"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.min": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "unsignedInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mapping.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.discriminator.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mapping": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.description": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.binding": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.isModifierReason": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.minValue[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.meaningWhenMissing": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.severity": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.isSummary": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.isModifier": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.base": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mapping.language": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.profile": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.aggregation": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.discriminator.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.sliceIsConstraining": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.versioning": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.discriminator": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.alias": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.pattern[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }, 
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "canonical"
+          }, 
+          {
+            "code": "code"
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "id"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "markdown"
+          }, 
+          {
+            "code": "oid"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "string"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "uri"
+          }, 
+          {
+            "code": "url"
+          }, 
+          {
+            "code": "uuid"
+          }, 
+          {
+            "code": "Address"
+          }, 
+          {
+            "code": "Age"
+          }, 
+          {
+            "code": "Annotation"
+          }, 
+          {
+            "code": "Attachment"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Coding"
+          }, 
+          {
+            "code": "ContactPoint"
+          }, 
+          {
+            "code": "Count"
+          }, 
+          {
+            "code": "Distance"
+          }, 
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "HumanName"
+          }, 
+          {
+            "code": "Identifier"
+          }, 
+          {
+            "code": "Money"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Reference"
+          }, 
+          {
+            "code": "SampledData"
+          }, 
+          {
+            "code": "Signature"
+          }, 
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "ContactDetail"
+          }, 
+          {
+            "code": "Contributor"
+          }, 
+          {
+            "code": "DataRequirement"
+          }, 
+          {
+            "code": "Expression"
+          }, 
+          {
+            "code": "ParameterDefinition"
+          }, 
+          {
+            "code": "RelatedArtifact"
+          }, 
+          {
+            "code": "TriggerDefinition"
+          }, 
+          {
+            "code": "UsageContext"
+          }, 
+          {
+            "code": "Dosage"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.maxValue[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.binding.strength": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.constraint.expression": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.condition": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "id"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.mustSupport": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.human": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.mapping.comment": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.base.min": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "unsignedInt"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.binding.description": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.short": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.defaultValue[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }, 
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "canonical"
+          }, 
+          {
+            "code": "code"
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "id"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "markdown"
+          }, 
+          {
+            "code": "oid"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "string"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "uri"
+          }, 
+          {
+            "code": "url"
+          }, 
+          {
+            "code": "uuid"
+          }, 
+          {
+            "code": "Address"
+          }, 
+          {
+            "code": "Age"
+          }, 
+          {
+            "code": "Annotation"
+          }, 
+          {
+            "code": "Attachment"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Coding"
+          }, 
+          {
+            "code": "ContactPoint"
+          }, 
+          {
+            "code": "Count"
+          }, 
+          {
+            "code": "Distance"
+          }, 
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "HumanName"
+          }, 
+          {
+            "code": "Identifier"
+          }, 
+          {
+            "code": "Money"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Reference"
+          }, 
+          {
+            "code": "SampledData"
+          }, 
+          {
+            "code": "Signature"
+          }, 
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "ContactDetail"
+          }, 
+          {
+            "code": "Contributor"
+          }, 
+          {
+            "code": "DataRequirement"
+          }, 
+          {
+            "code": "Expression"
+          }, 
+          {
+            "code": "ParameterDefinition"
+          }, 
+          {
+            "code": "RelatedArtifact"
+          }, 
+          {
+            "code": "TriggerDefinition"
+          }, 
+          {
+            "code": "UsageContext"
+          }, 
+          {
+            "code": "Dosage"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.xpath": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.example.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.rules": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.example.label": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.orderMeaning": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.ordered": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.slicing.discriminator.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ElementDefinition.representation": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.base.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.example": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.comment": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.binding.valueSet": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type.targetProfile": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.label": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.type": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.contentReference": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.base.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.constraint.requirements": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ElementDefinition.requirements": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "TriggerDefinition": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "TriggerDefinition", 
+    "elements": {
+      "TriggerDefinition.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.data": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "DataRequirement"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.name": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.timing[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "Reference", 
+            "targets": [
+              "Schedule"
+            ]
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.condition": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Expression"
+          }
+        ], 
+        "min": 0
+      }, 
+      "TriggerDefinition.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "MoneyQuantity": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "MoneyQuantity", 
+    "elements": {
+      "Quantity.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "HumanName": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "HumanName", 
+    "elements": {
+      "HumanName.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.prefix": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.given": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.family": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.suffix": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.use": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "HumanName.text": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "ParameterDefinition": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "ParameterDefinition", 
+    "elements": {
+      "ParameterDefinition.profile": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.use": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ParameterDefinition.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.documentation": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ParameterDefinition.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.max": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.name": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ParameterDefinition.min": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "integer"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "UsageContext": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "UsageContext", 
+    "elements": {
+      "UsageContext.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "UsageContext.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "UsageContext.value[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Reference", 
+            "targets": [
+              "PlanDefinition", 
+              "ResearchStudy", 
+              "InsurancePlan", 
+              "HealthcareService", 
+              "Group", 
+              "Location", 
+              "Organization"
+            ]
+          }
+        ], 
+        "min": 1
+      }, 
+      "UsageContext.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "Address": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Address", 
+    "elements": {
+      "Address.city": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.line": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.text": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.district": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.use": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.state": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.postalCode": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Address.country": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Timing": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "Timing", 
+    "elements": {
+      "Timing.repeat.offset": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "unsignedInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.durationMax": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.frequency": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.frequencyMax": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.count": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.timeOfDay": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "time"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.duration": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.periodUnit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.when": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.dayOfWeek": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.bounds[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.countMax": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.periodMax": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.event": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Timing.repeat.durationUnit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Annotation": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Annotation", 
+    "elements": {
+      "Annotation.author[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Reference", 
+            "targets": [
+              "Practitioner", 
+              "Patient", 
+              "RelatedPerson", 
+              "Organization"
+            ]
+          }, 
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Annotation.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Annotation.text": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "markdown"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Annotation.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Annotation.time": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Population": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "Population", 
+    "elements": {
+      "Population.race": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.gender": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.physiologicalCondition": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.age[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Population.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Count": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "Count", 
+    "elements": {
+      "Count.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Count.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Distance": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "Distance", 
+    "elements": {
+      "Distance.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Distance.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Extension": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Extension", 
+    "elements": {
+      "Extension.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Extension.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Extension.value[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "base64Binary"
+          }, 
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "canonical"
+          }, 
+          {
+            "code": "code"
+          }, 
+          {
+            "code": "date"
+          }, 
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "decimal"
+          }, 
+          {
+            "code": "id"
+          }, 
+          {
+            "code": "instant"
+          }, 
+          {
+            "code": "integer"
+          }, 
+          {
+            "code": "markdown"
+          }, 
+          {
+            "code": "oid"
+          }, 
+          {
+            "code": "positiveInt"
+          }, 
+          {
+            "code": "string"
+          }, 
+          {
+            "code": "time"
+          }, 
+          {
+            "code": "unsignedInt"
+          }, 
+          {
+            "code": "uri"
+          }, 
+          {
+            "code": "url"
+          }, 
+          {
+            "code": "uuid"
+          }, 
+          {
+            "code": "Address"
+          }, 
+          {
+            "code": "Age"
+          }, 
+          {
+            "code": "Annotation"
+          }, 
+          {
+            "code": "Attachment"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Coding"
+          }, 
+          {
+            "code": "ContactPoint"
+          }, 
+          {
+            "code": "Count"
+          }, 
+          {
+            "code": "Distance"
+          }, 
+          {
+            "code": "Duration"
+          }, 
+          {
+            "code": "HumanName"
+          }, 
+          {
+            "code": "Identifier"
+          }, 
+          {
+            "code": "Money"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Quantity"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Reference"
+          }, 
+          {
+            "code": "SampledData"
+          }, 
+          {
+            "code": "Signature"
+          }, 
+          {
+            "code": "Timing"
+          }, 
+          {
+            "code": "ContactDetail"
+          }, 
+          {
+            "code": "Contributor"
+          }, 
+          {
+            "code": "DataRequirement"
+          }, 
+          {
+            "code": "Expression"
+          }, 
+          {
+            "code": "ParameterDefinition"
+          }, 
+          {
+            "code": "RelatedArtifact"
+          }, 
+          {
+            "code": "TriggerDefinition"
+          }, 
+          {
+            "code": "UsageContext"
+          }, 
+          {
+            "code": "Dosage"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Extension.url": {
+        "max": "1", 
+        "types": [], 
+        "min": 1
+      }
+    }
+  }, 
+  "Age": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "Age", 
+    "elements": {
+      "Age.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Age.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Element": {
+    "abstract": true, 
+    "base": null, 
+    "name": "Element", 
+    "elements": {
+      "Element.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Element.id": {
+        "max": "1", 
+        "types": [], 
+        "min": 0
+      }
+    }
+  }, 
+  "Contributor": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Contributor", 
+    "elements": {
+      "Contributor.name": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Contributor.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Contributor.contact": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "ContactDetail"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Contributor.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Contributor.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "Range": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Range", 
+    "elements": {
+      "Range.high": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Range.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Range.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Range.low": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Narrative": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Narrative", 
+    "elements": {
+      "Narrative.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Narrative.div": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "xhtml"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Narrative.status": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Narrative.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Identifier": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Identifier", 
+    "elements": {
+      "Identifier.assigner": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Reference", 
+            "targets": [
+              "Organization"
+            ]
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.use": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Identifier.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Expression": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Expression", 
+    "elements": {
+      "Expression.expression": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Expression.language": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "Expression.reference": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Expression.description": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Expression.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Expression.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Expression.name": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "id"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Dosage": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "Dosage", 
+    "elements": {
+      "Dosage.doseAndRate.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.doseAndRate.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.maxDosePerAdministration": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.maxDosePerLifetime": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.patientInstruction": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.additionalInstruction": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.doseAndRate.rate[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Ratio"
+          }, 
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.route": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.sequence": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "integer"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.asNeeded[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }, 
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.doseAndRate": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.method": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.doseAndRate.dose[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Range"
+          }, 
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.site": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.timing": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Timing"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.text": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.doseAndRate.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Dosage.maxDosePerPeriod": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Ratio"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "CodeableConcept": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "CodeableConcept", 
+    "elements": {
+      "CodeableConcept.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "CodeableConcept.text": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "CodeableConcept.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "CodeableConcept.coding": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Quantity": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Quantity", 
+    "elements": {
+      "Quantity.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "ProductShelfLife": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "ProductShelfLife", 
+    "elements": {
+      "ProductShelfLife.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProductShelfLife.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProductShelfLife.identifier": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Identifier"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProductShelfLife.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ProductShelfLife.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 1
+      }, 
+      "ProductShelfLife.specialPrecautionsForStorage": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProductShelfLife.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Reference": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Reference", 
+    "elements": {
+      "Reference.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Reference.reference": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Reference.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Reference.display": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Reference.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Reference.identifier": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Identifier"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Money": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Money", 
+    "elements": {
+      "Money.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Money.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Money.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Money.currency": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Coding": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Coding", 
+    "elements": {
+      "Coding.display": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.version": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.userSelected": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "boolean"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Coding.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Period": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Period", 
+    "elements": {
+      "Period.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Period.end": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Period.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Period.start": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "DataRequirement": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "DataRequirement", 
+    "elements": {
+      "DataRequirement.sort": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.searchParam": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.dateFilter.searchParam": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.dateFilter.value[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "dateTime"
+          }, 
+          {
+            "code": "Period"
+          }, 
+          {
+            "code": "Duration"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.sort.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 1
+      }, 
+      "DataRequirement.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.subject[x]": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }, 
+          {
+            "code": "Reference", 
+            "targets": [
+              "Group"
+            ]
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.sort.direction": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "DataRequirement.profile": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.code": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.limit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.dateFilter.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.dateFilter.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.valueSet": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.mustSupport": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.codeFilter.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.type": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 1
+      }, 
+      "DataRequirement.dateFilter": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Element"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.sort.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.dateFilter.path": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "DataRequirement.sort.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Meta": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "Meta", 
+    "elements": {
+      "Meta.lastUpdated": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "instant"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.security": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.profile": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "canonical"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.versionId": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "id"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.tag": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Coding"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Meta.source": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "Duration": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "Duration", 
+    "elements": {
+      "Duration.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.comparator": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Duration.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "ContactPoint": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "ContactPoint", 
+    "elements": {
+      "ContactPoint.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.rank": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Period"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ContactPoint.use": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "SampledData": {
+    "abstract": false, 
+    "base": "Element", 
+    "name": "SampledData", 
+    "elements": {
+      "SampledData.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.factor": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.period": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 1
+      }, 
+      "SampledData.data": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.lowerLimit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.origin": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 1
+      }, 
+      "SampledData.upperLimit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }, 
+      "SampledData.dimensions": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "positiveInt"
+          }
+        ], 
+        "min": 1
+      }
+    }
+  }, 
+  "ProdCharacteristic": {
+    "abstract": false, 
+    "base": "BackboneElement", 
+    "name": "ProdCharacteristic", 
+    "elements": {
+      "ProdCharacteristic.shape": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.color": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.depth": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.modifierExtension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.nominalVolume": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.scoring": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "CodeableConcept"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.imprint": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.width": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.image": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Attachment"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.weight": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.height": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }, 
+      "ProdCharacteristic.externalDiameter": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "Quantity"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }, 
+  "SimpleQuantity": {
+    "abstract": false, 
+    "base": "Quantity", 
+    "name": "SimpleQuantity", 
+    "elements": {
+      "Quantity.unit": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.system": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.comparator": {
+        "max": "0", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.code": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "code"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.id": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "string"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.extension": {
+        "max": "*", 
+        "types": [
+          {
+            "code": "Extension"
+          }
+        ], 
+        "min": 0
+      }, 
+      "Quantity.value": {
+        "max": "1", 
+        "types": [
+          {
+            "code": "decimal"
+          }
+        ], 
+        "min": 0
+      }
+    }
+  }
+}
