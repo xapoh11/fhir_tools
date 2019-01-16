@@ -32,7 +32,7 @@ def generate_type_definitions_to_file(
 def generate_resource_definitions(input_file='profiles-resources.json'):
     bundle = utils.read_resource_definitions(input_file)
     entries = utils.get_bundle_entries(bundle)
-    definitions = filter_structure_definitions(entries)
+    definitions = utils.filter_structure_definitions(entries)
     transformed = transform_definitions(definitions)
     return transformed
 
@@ -40,7 +40,7 @@ def generate_resource_definitions(input_file='profiles-resources.json'):
 def generate_type_definitions(input_file='profiles-types.json'):
     bundle = utils.read_resource_definitions(input_file)
     entries = utils.get_bundle_entries(bundle)
-    entries = filter_structure_definitions(entries)
+    entries = utils.filter_structure_definitions(entries)
     definitions = filter_primitive_types(entries)
     transformed = transform_definitions(definitions)
     return transformed
@@ -96,10 +96,6 @@ def transform_types(types):
             targets = [utils.resource_from_url(r) for r in _type['targetProfile']]
             result['targets'] = targets
         yield result
-
-
-def filter_structure_definitions(entries):
-    return (e for e in entries if e['resourceType'] == 'StructureDefinition')
 
 
 def filter_primitive_types(entries):

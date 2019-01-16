@@ -11,7 +11,7 @@ V4_DEF_PATH = os.path.join(BASE_PATH, 'definitions/v4')
 def resource_from_path(path):
     index = path.find('.')
     if index == -1:
-        raise ValueError('Invalid Path')
+        return path
     return path[:index]
 
 
@@ -27,6 +27,10 @@ def read_resource_definitions(input_file):
     input_file = os.path.join(V4_DEF_PATH, 'official', input_file)
     with open(input_file) as fp:
         return json.load(fp)
+
+
+def filter_structure_definitions(entries):
+    return (e for e in entries if e['resourceType'] == 'StructureDefinition')
 
 
 STRIPPED_KEYS = {'id', 'name', 'status', 'kind', 'abstract', 'type', 'baseDefinition', 'snapshot'}
