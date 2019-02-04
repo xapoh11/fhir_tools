@@ -272,6 +272,7 @@ class DBReference(dict):
         ref = cls(resourceType=resource_type, id=_id)
         if hasattr(reference, 'display'):
             ref.display = reference.display
+        return ref
 
     @property
     def resource_type(self):
