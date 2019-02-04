@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Pavel 'Blane' Tuchin
 import json
+import six
 from . import generation
 from . import utils
 
@@ -63,25 +64,21 @@ class StructDefinition(object):
 
 class ElementDefinition(object):
     def __init__(self, _json, type_defs):
+        self.is_struct_def = False
+
         self.min = _json['min']
-        self.max = _json['max']
+        _max = _json['max']
+        if _max == '*':
+            self.max = None
+            self.is_unlimited = True
+        else:
+            self.max = int(_max)
+            self.is_unlimited = False
+        self.is_required = self.min > 0
+        self.is_single = self.max == 1
+        self.is_array = not self.is_single
+
         self.types = [Type(t, type_defs) for t in _json['types']]
-
-    @property
-    def is_unlimited(self):
-        return self.max == '*'
-
-    @property
-    def is_single(self):
-        return self.max == 1
-
-    @property
-    def is_array(self):
-        return not self.is_single
-
-    @property
-    def is_struct_def(self):
-        return False
 
     @property
     def is_polymorphic(self):
@@ -93,14 +90,29 @@ class ElementDefinition(object):
             raise ValueError('Element is polymorphic')
         return self.types[0]
 
+    def to_single_type(self, _type):
+        if _type not in self.types:
+            raise ValueError('Invalid Type')
+        new_def = ElementDefinition({
+            'min': self.min,
+            'max': '*' if self.is_unlimited else six.text_type(self.max),
+            'types': []
+        }, {})
+        new_def.types = [_type]
+        return new_def
+
 
 class Type(object):
     def __init__(self, _json, type_defs):
         self.code = _json['code']
         self.is_reference = self.code == 'Reference'
+        self.is_backbone = self.code == 'BackboneElement'
         self.is_complex = self.code in type_defs
         self.is_primitive = not self.is_complex
         if self.is_reference:
-            self.to = _json['target']
+            self.to = _json.get('targets')
+            if not self.to:
+                self.is_any = True
         else:
             self.to = None
+            self.is_any = False
