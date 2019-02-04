@@ -5,6 +5,9 @@ import six
 
 
 class Resources(object):
+    """Repository of generated classed for Resources, Complex Types and Backbone Elements
+
+    """
     def __init__(self, definitions):
         self._definitions = definitions
         self._types = {}
@@ -83,6 +86,13 @@ class Resources(object):
             yield field, element_def, is_backbone
 
     def get(self, name):
+        """Get a class from repository by name
+
+        Name can be a Resource, a Complex Type or a Backbone Element
+
+        :param name: name of a class (str).
+        :return: Class for a provided name
+        """
         if name in self._resources:
             return self._resources[name]
         if name in self._types:
@@ -127,6 +137,11 @@ class FHIRObject(dict):
 
     @classmethod
     def from_json(cls, json):
+        """Creates FHIR object (Resource, Complex Type or BackboneElement)
+
+        :param json: parsed JSON (dict)
+        :return: FHIR object created from JSON
+        """
         kwargs = {}
         for field, value in six.iteritems(json):
             if field not in cls._fhir_fields:
@@ -148,6 +163,14 @@ class FHIRObject(dict):
 
     @classmethod
     def from_db_json(cls, json):
+        """Creates FHIR object (Resource, Complex Type or BackboneElement).
+
+        References and polymorphic fields are expected to be in a DB friendly format.
+        See FHIRBase documentation for details.
+
+        :param json: parsed JSON (dict)
+        :return: FHIR object created from JSON
+        """
         kwargs = {}
         poly_fields = {}
         for field, value in six.iteritems(json):
@@ -177,6 +200,7 @@ class FHIRObject(dict):
         return resource
 
     def to_db_format(self):
+        """Convert FHIR Object to a DB friendly format."""
         converted = {}
         for field, value in six.iteritems(self):
             if field not in self._fhir_fields:
@@ -203,6 +227,9 @@ class FHIRObject(dict):
         self.update(converted)
 
     def to_fhir_format(self):
+        """Convert FHIR Object to a default FHIR representation from DB
+        friendly format.
+        """
         def _convert_ref(val):
             ref = self._fhir_resources.Reference(
                 reference='{}/{}'.format(val.resource_type, val.id)
