@@ -185,6 +185,7 @@ class Type(object):
         self.code = _json['code']
         self.is_reference = self.code == 'Reference'
         self.is_backbone = self.code == 'BackboneElement'
+        self.is_resource = self.code == 'Resource'
         self.is_complex = self.code in type_defs
         self.is_primitive = not self.is_complex
         if self.is_reference:

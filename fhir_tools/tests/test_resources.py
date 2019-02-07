@@ -37,6 +37,19 @@ class TestResources(unittest.TestCase):
         self.assertEqual(patient.name[0].family, 'Doe')
         self.assertEqual(patient.contact[0].gender, 'male')
 
+    def test_from_json_cls_method(self):
+        patient = self.resources.from_json({
+            'resourceType': 'Patient',
+            'id': 'example',
+            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
+            'contact': [{'gender': 'male'}]
+        })
+        self.assertEqual(patient.id, 'example')
+        self.assertIsInstance(patient.name[0], self.resources.HumanName)
+        self.assertIsInstance(patient.contact[0], self.resources.Patient.Contact)
+        self.assertEqual(patient.name[0].family, 'Doe')
+        self.assertEqual(patient.contact[0].gender, 'male')
+
     def test_from_db_json(self):
         patient = self.resources.Patient.from_db_json({
             'id': 'example',
@@ -52,6 +65,30 @@ class TestResources(unittest.TestCase):
         patient.to_fhir_format()
         self.assertEqual(patient.generalPractitioner[0].reference, 'Practitioner/example')
         self.assertEqual(patient.deceased, False)
+
+    def test_from_db_json_cls_method_no_convert(self):
+        patient = self.resources.from_db_json({
+            'resourceType': 'Patient',
+            'id': 'example',
+            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
+            'deceased': {'boolean': False},
+            'generalPractitioner': [{'id': 'example', 'resourceType': 'Practitioner'}]
+        }, False)
+        self.assertEqual(patient.id, 'example')
+        self.assertIsInstance(patient.name[0], self.resources.HumanName)
+        self.assertEqual(patient.name[0].family, 'Doe')
+        self.assertIsInstance(patient.generalPractitioner[0], resources.DBReference)
+        self.assertEqual(patient.generalPractitioner[0].id, 'example')
+
+    def test_from_db_json_cls_method(self):
+        patient = self.resources.from_db_json({
+            'resourceType': 'Patient',
+            'id': 'example',
+            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
+            'deceased': {'boolean': False},
+            'generalPractitioner': [{'id': 'example', 'resourceType': 'Practitioner'}]
+        })
+        self.assertEqual(patient.generalPractitioner[0].reference, 'Practitioner/example')
 
     def test_polymorphic(self):
         patient = self.resources.Patient(id='example', deceasedBoolean=True)
@@ -92,3 +129,18 @@ class TestResources(unittest.TestCase):
         })
         patient.to_db_format()
         self.assertEqual(patient['deceased']['boolean'], False)
+
+    def test_resource_type(self):
+        bundle = self.resources.from_json({
+            'resourceType': 'Bundle',
+            'type': 'collection',
+            'entry': [{
+                'resource': {
+                    'resourceType': 'Patient',
+                    'id': 'example',
+                    'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
+                    'deceasedBoolean': False,
+                 }
+            }]
+        })
+        self.assertIsInstance(bundle.entry[0].resource, self.resources.Patient)

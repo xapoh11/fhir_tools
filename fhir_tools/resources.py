@@ -99,6 +99,17 @@ class Resources(object):
             return self._types[name]
         raise KeyError('Class not found')
 
+    def from_json(self, json):
+        _class = self.get(json['resourceType'])
+        return _class.from_json(json)
+
+    def from_db_json(self, json, convert_to_fhir=True):
+        _class = self.get(json['resourceType'])
+        resource = _class.from_db_json(json)
+        if convert_to_fhir:
+            resource.to_fhir_format()
+        return resource
+
     def __getattr__(self, name):
         return self.get(name)
 
@@ -148,7 +159,10 @@ class FHIRObject(dict):
                 continue
             element = cls._fhir_fields[field]
             if not element.type.is_complex and not element.type.is_backbone:
-                kwargs[field] = value
+                if element.type.is_resource:
+                    kwargs[field] = cls._fhir_resources.from_json(value)
+                else:
+                    kwargs[field] = value
             else:
                 if element.type.is_backbone:
                     _class = getattr(cls, to_camel_case(field))
@@ -181,7 +195,10 @@ class FHIRObject(dict):
                 continue
             element = cls._fhir_fields[field]
             if not element.type.is_complex and not element.type.is_backbone:
-                kwargs[field] = value
+                if element.type.is_resource:
+                    kwargs[field] = cls._fhir_resources.from_db_json(value)
+                else:
+                    kwargs[field] = value
             else:
                 if element.type.is_backbone:
                     _class = getattr(cls, to_camel_case(field))
