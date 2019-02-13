@@ -285,6 +285,25 @@ class FHIRObject(dict):
                 converted[field_name] = _class.from_json(value)
         self.update(converted)
 
+    def replace_refs(self, old, new):
+        def _convert_ref(val):
+            if 'reference' in val and val.reference == old:
+                value.reference = new
+        for field, value in six.iteritems(self):
+            if field not in self._fhir_fields:
+                continue
+            element = self._fhir_fields[field]
+            if element.type.is_reference:
+                if element.is_array:
+                    [_convert_ref(r) for r in value]
+                else:
+                    _convert_ref(value)
+            elif element.type.is_backbone or element.type.is_complex:
+                if element.is_array:
+                    [v.replace_refs(old, new) for v in value]
+                else:
+                    value.replace_refs(old, new)
+
 
 class Type(FHIRObject):
     pass
