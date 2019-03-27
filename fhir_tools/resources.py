@@ -208,9 +208,9 @@ class FHIRObject(dict):
                     else:
                         _class = cls._fhir_resources.get(element.type.code)
                 if element.is_array:
-                    kwargs[field] = [_class.from_json(v) for v in value]
+                    kwargs[field] = [_class.from_db_json(v) for v in value]
                 else:
-                    kwargs[field] = _class.from_json(value)
+                    kwargs[field] = _class.from_db_json(value)
 
         resource = cls(**kwargs)
         resource.update(poly_fields)
@@ -325,6 +325,10 @@ class DBReference(dict):
     @classmethod
     def from_json(cls, json):
         return cls(**json)
+
+    @classmethod
+    def from_db_json(cls, json):
+        return cls.from_json(json)
 
     @classmethod
     def from_reference(cls, reference):
