@@ -27,68 +27,122 @@ class TestResources(unittest.TestCase):
 
     def test_from_json(self):
         patient = self.resources.Patient.from_json({
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'contact': [{'gender': 'male'}]
+            'id':
+            'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'contact': [{
+                'gender': 'male'
+            }]
         })
         self.assertEqual(patient.id, 'example')
         self.assertIsInstance(patient.name[0], self.resources.HumanName)
-        self.assertIsInstance(patient.contact[0], self.resources.Patient.Contact)
+        self.assertIsInstance(patient.contact[0],
+                              self.resources.Patient.Contact)
         self.assertEqual(patient.name[0].family, 'Doe')
         self.assertEqual(patient.contact[0].gender, 'male')
 
     def test_from_json_cls_method(self):
         patient = self.resources.from_json({
-            'resourceType': 'Patient',
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'contact': [{'gender': 'male'}]
+            'resourceType':
+            'Patient',
+            'id':
+            'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'contact': [{
+                'gender': 'male'
+            }]
         })
         self.assertEqual(patient.id, 'example')
         self.assertIsInstance(patient.name[0], self.resources.HumanName)
-        self.assertIsInstance(patient.contact[0], self.resources.Patient.Contact)
+        self.assertIsInstance(patient.contact[0],
+                              self.resources.Patient.Contact)
         self.assertEqual(patient.name[0].family, 'Doe')
         self.assertEqual(patient.contact[0].gender, 'male')
 
     def test_from_db_json(self):
         patient = self.resources.Patient.from_db_json({
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'deceased': {'boolean': False},
-            'generalPractitioner': [{'id': 'example', 'resourceType': 'Practitioner'}]
+            'id':
+            'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'deceased': {
+                'boolean': False
+            },
+            'generalPractitioner': [{
+                'id': 'example',
+                'resourceType': 'Practitioner'
+            }]
         })
         self.assertEqual(patient.id, 'example')
         self.assertIsInstance(patient.name[0], self.resources.HumanName)
         self.assertEqual(patient.name[0].family, 'Doe')
-        self.assertIsInstance(patient.generalPractitioner[0], resources.DBReference)
+        self.assertIsInstance(patient.generalPractitioner[0],
+                              resources.DBReference)
         self.assertEqual(patient.generalPractitioner[0].id, 'example')
         patient.to_fhir_format()
-        self.assertEqual(patient.generalPractitioner[0].reference, 'Practitioner/example')
+        self.assertEqual(patient.generalPractitioner[0].reference,
+                         'Practitioner/example')
         self.assertEqual(patient.deceased, False)
 
     def test_from_db_json_cls_method_no_convert(self):
-        patient = self.resources.from_db_json({
-            'resourceType': 'Patient',
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'deceased': {'boolean': False},
-            'generalPractitioner': [{'id': 'example', 'resourceType': 'Practitioner'}]
-        }, False)
+        patient = self.resources.from_db_json(
+            {
+                'resourceType':
+                'Patient',
+                'id':
+                'example',
+                'name': [{
+                    'given': ['John'],
+                    'family': 'Doe',
+                    'text': 'John Doe'
+                }],
+                'deceased': {
+                    'boolean': False
+                },
+                'generalPractitioner': [{
+                    'id': 'example',
+                    'resourceType': 'Practitioner'
+                }]
+            }, False)
         self.assertEqual(patient.id, 'example')
         self.assertIsInstance(patient.name[0], self.resources.HumanName)
         self.assertEqual(patient.name[0].family, 'Doe')
-        self.assertIsInstance(patient.generalPractitioner[0], resources.DBReference)
+        self.assertIsInstance(patient.generalPractitioner[0],
+                              resources.DBReference)
         self.assertEqual(patient.generalPractitioner[0].id, 'example')
 
     def test_from_db_json_cls_method(self):
         patient = self.resources.from_db_json({
-            'resourceType': 'Patient',
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'deceased': {'boolean': False},
-            'generalPractitioner': [{'id': 'example', 'resourceType': 'Practitioner'}]
+            'resourceType':
+            'Patient',
+            'id':
+            'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'deceased': {
+                'boolean': False
+            },
+            'generalPractitioner': [{
+                'id': 'example',
+                'resourceType': 'Practitioner'
+            }]
         })
-        self.assertEqual(patient.generalPractitioner[0].reference, 'Practitioner/example')
+        self.assertEqual(patient.generalPractitioner[0].reference,
+                         'Practitioner/example')
 
     def test_polymorphic(self):
         patient = self.resources.Patient(id='example', deceasedBoolean=True)
@@ -96,26 +150,33 @@ class TestResources(unittest.TestCase):
         self.assertEqual(patient.deceased, True)
 
     def test_backbone(self):
-        self.assertTrue(issubclass(self.resources.Patient.Contact, resources.Backbone))
+        self.assertTrue(
+            issubclass(self.resources.Patient.Contact, resources.Backbone))
         contact = self.resources.Patient.Contact(gender='male')
         self.assertEqual(contact.gender, 'male')
 
     def test_backbone_in_backbone(self):
-        self.assertTrue(issubclass(self.resources.InsurancePlan.Plan, resources.Backbone))
-        self.assertTrue(issubclass(self.resources.InsurancePlan.Plan.GeneralCost, resources.Backbone))
-        plan = self.resources.InsurancePlan.Plan(
-            generalCost=[self.resources.InsurancePlan.Plan.GeneralCost(comment='example')]
-        )
+        self.assertTrue(
+            issubclass(self.resources.InsurancePlan.Plan, resources.Backbone))
+        self.assertTrue(
+            issubclass(self.resources.InsurancePlan.Plan.GeneralCost,
+                       resources.Backbone))
+        plan = self.resources.InsurancePlan.Plan(generalCost=[
+            self.resources.InsurancePlan.Plan.GeneralCost(comment='example')
+        ])
         self.assertEqual(plan.generalCost[0].comment, 'example')
 
     def test_complex_type(self):
-        name = self.resources.HumanName(family='Doe', given=['John'], text='John Doe')
+        name = self.resources.HumanName(family='Doe',
+                                        given=['John'],
+                                        text='John Doe')
         self.assertEqual(name.family, 'Doe')
         self.assertEqual(name.given[0], 'John')
         self.assertEqual(name.text, 'John Doe')
 
     def test_db_reference(self):
-        reference = self.resources.Reference(display='Example', reference='Patient/example')
+        reference = self.resources.Reference(display='Example',
+                                             reference='Patient/example')
         db_reference = resources.DBReference.from_reference(reference)
         self.assertEqual(db_reference.display, 'Example')
         self.assertEqual(db_reference.id, 'example')
@@ -123,24 +184,47 @@ class TestResources(unittest.TestCase):
 
     def test_db_polymorphic(self):
         patient = self.resources.Patient.from_json({
-            'id': 'example',
-            'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-            'deceasedBoolean': False,
+            'id':
+            'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'deceasedBoolean':
+            False,
         })
         patient.to_db_format()
         self.assertEqual(patient['deceased']['boolean'], False)
 
     def test_resource_type(self):
         bundle = self.resources.from_json({
-            'resourceType': 'Bundle',
-            'type': 'collection',
+            'resourceType':
+            'Bundle',
+            'type':
+            'collection',
             'entry': [{
                 'resource': {
-                    'resourceType': 'Patient',
-                    'id': 'example',
-                    'name': [{'given': ['John'], 'family': 'Doe', 'text': 'John Doe'}],
-                    'deceasedBoolean': False,
-                 }
+                    'resourceType':
+                    'Patient',
+                    'id':
+                    'example',
+                    'name': [{
+                        'given': ['John'],
+                        'family': 'Doe',
+                        'text': 'John Doe'
+                    }],
+                    'deceasedBoolean':
+                    False,
+                }
             }]
         })
         self.assertIsInstance(bundle.entry[0].resource, self.resources.Patient)
+
+    def test_delete_attr_with_none(self):
+        patient = self.resources.Patient(active=True)
+        patient.active = None
+        self.assertRaises(AttributeError, lambda: patient.active)
+        patient.name = [{'family': 'Doe'}]
+        patient.name = []
+        self.assertRaises(AttributeError, lambda: patient.name)

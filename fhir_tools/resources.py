@@ -5,9 +5,11 @@ import six
 
 
 class Resources(object):
-    """Repository of generated classed for Resources, Complex Types and Backbone Elements
+    """Repository of generated classed for Resources, Complex Types and
+    Backbone Elements
 
     """
+
     def __init__(self, definitions):
         self._definitions = definitions
         self._types = {}
@@ -15,20 +17,23 @@ class Resources(object):
         for _type, definition in six.iteritems(definitions.type_defs):
             self._types[_type] = self._create_type(_type, definition)
         for resource, definition in six.iteritems(definitions.res_defs):
-            self._resources[resource] = self._create_resource(resource, definition)
+            self._resources[resource] = self._create_resource(
+                resource, definition)
 
     def _create_type(self, name, definition):
-        fields, polymorphic, backbones = self._create_fields(definition.elements)
+        fields, polymorphic, backbones = self._create_fields(
+            definition.elements)
         attrs = {
             b'_fhir_resources': self,
             b'_fhir_fields': fields,
             b'_fhir_polymorphic': polymorphic
         }
         attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Type,), attrs)
+        return type(bytes(name), (Type, ), attrs)
 
     def _create_resource(self, name, definition):
-        fields, polymorphic, backbones = self._create_fields(definition.elements)
+        fields, polymorphic, backbones = self._create_fields(
+            definition.elements)
         attrs = {
             b'_fhir_resources': self,
             b'_fhir_fields': fields,
@@ -36,7 +41,7 @@ class Resources(object):
             b'_fhir_resource_type': name
         }
         attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Resource,), attrs)
+        return type(bytes(name), (Resource, ), attrs)
 
     def _create_backbone(self, name, elements):
         fields, polymorphic, backbones = self._create_fields(elements)
@@ -46,7 +51,7 @@ class Resources(object):
             b'_fhir_polymorphic': polymorphic,
         }
         attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Backbone,), attrs)
+        return type(bytes(name), (Backbone, ), attrs)
 
     def _create_fields(self, elements):
         fields = {}
@@ -120,7 +125,11 @@ class FHIRObject(dict):
     _fhir_polymorphic = {}
 
     def __init__(self, **kwargs):
-        initial = {k: v for k, v in six.iteritems(kwargs) if k in self._fhir_fields}
+        initial = {
+            k: v
+            for k, v in six.iteritems(kwargs) if (k in self._fhir_fields) and (
+                v is not None) and not (isinstance(v, list) and not v)
+        }
         dict.__init__(self, **initial)
 
     def __getattr__(self, name):
@@ -138,10 +147,16 @@ class FHIRObject(dict):
         raise AttributeError(name)
 
     def __setattr__(self, name, value):
-        if name in self._fhir_fields:
-            self[name] = value
-        else:
+        if name not in self._fhir_fields:
             raise AttributeError(name)
+
+        if value is None or (isinstance(value, list) and not value):
+            try:
+                self.__delattr__(name)
+            except (AttributeError, KeyError):
+                pass
+        else:
+            self[name] = value
 
     def __delattr__(self, name):
         del self[name]
@@ -179,7 +194,8 @@ class FHIRObject(dict):
     def from_db_json(cls, json):
         """Creates FHIR object (Resource, Complex Type or BackboneElement).
 
-        References and polymorphic fields are expected to be in a DB friendly format.
+        References and polymorphic fields are expected to be in a DB friendly
+        format.
         See FHIRBase documentation for details.
 
         :param json: parsed JSON (dict)
@@ -189,7 +205,8 @@ class FHIRObject(dict):
         poly_fields = {}
         for field, value in six.iteritems(json):
             if field in cls._fhir_polymorphic:
-                # Leave polymorphic types unchanged when converting from DB format
+                # Leave polymorphic types unchanged when converting from DB
+                # format
                 poly_fields[field] = value
             if field not in cls._fhir_fields:
                 continue
@@ -225,7 +242,9 @@ class FHIRObject(dict):
             element = self._fhir_fields[field]
             if element.type.is_reference:
                 if element.is_array:
-                    converted[field] = [DBReference.from_reference(r) for r in value]
+                    converted[field] = [
+                        DBReference.from_reference(r) for r in value
+                    ]
                 else:
                     db_ref = DBReference.from_reference(value)
                     converted[field] = db_ref
@@ -247,10 +266,10 @@ class FHIRObject(dict):
         """Convert FHIR Object to a default FHIR representation from DB
         friendly format.
         """
+
         def _convert_ref(val):
             ref = self._fhir_resources.Reference(
-                reference='{}/{}'.format(val.resource_type, val.id)
-            )
+                reference='{}/{}'.format(val.resource_type, val.id))
             if 'display' in val:
                 ref.display = val.display
             return ref
@@ -289,6 +308,7 @@ class FHIRObject(dict):
         def _convert_ref(val):
             if 'reference' in val and val.reference == old:
                 value.reference = new
+
         for field, value in six.iteritems(self):
             if field not in self._fhir_fields:
                 continue
@@ -334,7 +354,8 @@ class DBReference(dict):
     def from_reference(cls, reference):
         parts = reference.reference.split('/')
         if len(parts) > 2:
-            raise ValueError('Non-local reference: {}'.format(reference.reference))
+            raise ValueError('Non-local reference: {}'.format(
+                reference.reference))
         resource_type, _id = parts
         ref = cls(resourceType=resource_type, id=_id)
         if hasattr(reference, 'display'):
