@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Pavel 'Blane' Tuchin
+from __future__ import unicode_literals
 import os
 import json
 from six.moves.urllib.parse import urlsplit
@@ -9,6 +10,11 @@ V4_DEF_PATH = os.path.join(BASE_PATH, 'definitions/v4')
 
 
 def resource_from_path(path):
+    """Get resource name from path (first value before '.')
+
+    :param path: dot-separated path
+    :return: resource name
+    """
     index = path.find('.')
     if index == -1:
         return path
@@ -16,10 +22,20 @@ def resource_from_path(path):
 
 
 def resource_from_url(url):
+    """Get resource name from absolute URL
+
+    :param url: absolute URL to resource
+    :return: resource name (last URL segment)
+    """
     return urlsplit(url).path.split('/')[-1]
 
 
 def get_bundle_entries(bundle):
+    """Get resources from a bundle
+
+    :param bundle: bundle resource
+    :return: generator object that will yield resource from a bundle
+    """
     return (e['resource'] for e in bundle['entry'])
 
 
@@ -30,6 +46,11 @@ def read_resource_definitions(input_file):
 
 
 def filter_structure_definitions(entries):
+    """Filter StructureDefinition resource from a list
+
+    :param entries: list of entries (resources)
+    :return: generator object that will yield only StructureDefinition resources
+    """
     return (e for e in entries if e['resourceType'] == 'StructureDefinition')
 
 
