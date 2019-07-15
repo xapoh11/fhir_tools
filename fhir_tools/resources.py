@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Pavel 'Blane' Tuchin
-from __future__ import unicode_literals
 import six
 
 
@@ -24,34 +23,40 @@ class Resources(object):
         fields, polymorphic, backbones = self._create_fields(
             definition.elements)
         attrs = {
-            b'_fhir_resources': self,
-            b'_fhir_fields': fields,
-            b'_fhir_polymorphic': polymorphic
+            '_fhir_resources': self,
+            '_fhir_fields': fields,
+            '_fhir_polymorphic': polymorphic
         }
-        attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Type, ), attrs)
+        attrs.update({k: v for k, v in six.iteritems(backbones)})
+        if six.PY2:
+            return type(bytes(name), (Type, ), attrs)
+        return type(name, (Type, ), attrs)
 
     def _create_resource(self, name, definition):
         fields, polymorphic, backbones = self._create_fields(
             definition.elements)
         attrs = {
-            b'_fhir_resources': self,
-            b'_fhir_fields': fields,
-            b'_fhir_polymorphic': polymorphic,
-            b'_fhir_resource_type': name
+            '_fhir_resources': self,
+            '_fhir_fields': fields,
+            '_fhir_polymorphic': polymorphic,
+            '_fhir_resource_type': name
         }
-        attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Resource, ), attrs)
+        attrs.update({k: v for k, v in six.iteritems(backbones)})
+        if six.PY2:
+            return type(bytes(name), (Resource, ), attrs)
+        return type(name, (Resource, ), attrs)
 
     def _create_backbone(self, name, elements):
         fields, polymorphic, backbones = self._create_fields(elements)
         attrs = {
-            b'_fhir_resources': self,
-            b'_fhir_fields': fields,
-            b'_fhir_polymorphic': polymorphic,
+            '_fhir_resources': self,
+            '_fhir_fields': fields,
+            '_fhir_polymorphic': polymorphic,
         }
-        attrs.update({bytes(k): v for k, v in six.iteritems(backbones)})
-        return type(bytes(name), (Backbone, ), attrs)
+        attrs.update({k: v for k, v in six.iteritems(backbones)})
+        if six.PY2:
+            return type(bytes(name), (Backbone, ), attrs)
+        return type(name, (Backbone, ), attrs)
 
     def _create_fields(self, elements):
         fields = {}
