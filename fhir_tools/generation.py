@@ -78,6 +78,10 @@ def transform_elements(elements):
         _min = element.get('min', 0)
         _max = element.get('max', '*')
         types = element.get('type', [])
+        if path == 'Extension.url':
+            types = [{'code': 'uri'}]
+        else:
+            list(transform_types(types))
         results[path] = {
             'min': _min,
             'max': _max,

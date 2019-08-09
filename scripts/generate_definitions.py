@@ -5,8 +5,7 @@ import sys
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 PROJECT_PATH = os.path.dirname(BASE_PATH)
-
-sys.path.append(os.path.join(PROJECT_PATH, 'fhir_tools'))
+sys.path.append(os.path.join(PROJECT_PATH))
 
 
 def main():
