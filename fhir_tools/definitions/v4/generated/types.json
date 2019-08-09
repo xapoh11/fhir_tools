@@ -3153,7 +3153,11 @@
       }, 
       "Extension.url": {
         "max": "1", 
-        "types": [], 
+        "types": [
+          {
+            "code": "uri"
+          }
+        ], 
         "min": 1
       }
     }

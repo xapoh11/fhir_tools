@@ -228,3 +228,48 @@ class TestResources(unittest.TestCase):
         patient.name = [{'family': 'Doe'}]
         patient.name = []
         self.assertRaises(AttributeError, lambda: patient.name)
+
+    def test_extensions(self):
+        patient = self.resources.Patient.from_json({
+            'id': 'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'extension': [{
+                'url': 'http://example/extension',
+                'valueString': 'example'
+            }]
+        })
+        self.assertIsInstance(patient.extension[0], self.resources.Extension)
+        extension = patient.extension[0]
+        self.assertEqual(extension.url, 'http://example/extension')
+        self.assertEqual(extension.value, 'example')
+
+    def test_nested_extensions(self):
+        patient = self.resources.Patient.from_json({
+            'id': 'example',
+            'name': [{
+                'given': ['John'],
+                'family': 'Doe',
+                'text': 'John Doe'
+            }],
+            'extension': [{
+                'url': 'http://example/extension',
+                'extension': [{
+                    'url': 'key',
+                    'valueString': 'test'
+                }, {
+                    'url': 'value',
+                    'valueString': 'testValue'
+                }]
+            }]
+        })
+        extension = patient.extension[0]
+        extension_key = extension.extension[0]
+        extension_value = extension.extension[1]
+        self.assertEqual(extension_key.url, 'key')
+        self.assertEqual(extension_key.value, 'test')
+        self.assertEqual(extension_value.url, 'value')
+        self.assertEqual(extension_value.value, 'testValue')
