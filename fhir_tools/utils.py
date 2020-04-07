@@ -54,7 +54,7 @@ def filter_structure_definitions(entries):
     return (e for e in entries if e['resourceType'] == 'StructureDefinition')
 
 
-STRIPPED_KEYS = {'id', 'name', 'status', 'kind', 'abstract', 'type', 'baseDefinition', 'snapshot'}
+STRIPPED_KEYS = {'id', 'name', 'status', 'kind', 'abstract', 'type', 'baseDefinition', 'snapshot', 'isSummary'}
 STRIPPED_KEYS_ELEMENT = {'isModifier', 'min', 'max', 'base', 'isSummary', 'path', 'id', 'type'}
 
 
