@@ -116,7 +116,10 @@ class ElementDefinition(object):
     def __init__(self, _json, type_defs):
         #: Is this a structure definition (no, it is not)
         self.is_struct_def = False
-
+        
+        #: Is element summary
+        self.is_summary = _json.get('isSummary')
+        
         #: Minimal number of values in this element
         self.min = _json['min']
         _max = _json['max']
