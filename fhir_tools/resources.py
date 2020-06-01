@@ -312,7 +312,7 @@ class FHIRObject(dict):
     def replace_refs(self, old, new):
         def _convert_ref(val):
             if 'reference' in val and val.reference == old:
-                value.reference = new
+                val.reference = new
 
         for field, value in six.iteritems(self):
             if field not in self._fhir_fields:
