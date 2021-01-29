@@ -12,7 +12,7 @@ definitions = readers.defs_from_generated()
 resources = resources.Resources(definitions)
 
 name = resources.HumanName(family='Doe', given=['John'], text='John Doe')
-patient = resource.Patient(name=[name], id='example')
+patient = resources.Patient(name=[name], id='example')
 
 print(patient.name[0].text)
 ```
